@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivin Bose | Data Analyst Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 24px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav h1 {
+      font-size: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 70px 8%;
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+    }
+
+    .hero-text {
+      max-width: 720px;
+    }
+
+    .hero-text h2 {
+      font-size: 48px;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+
+    .hero-text h3 {
+      font-size: 24px;
+      color: #bfdbfe;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 28px;
+      max-width: 650px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #111827;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      color: #4b5563;
+      margin-bottom: 35px;
+      max-width: 850px;
+    }
+
+    .about-box,
+    .contact-box {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      max-width: 1000px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 12px;
+      color: #1e3a8a;
+    }
+
+    .skill-card p {
+      color: #4b5563;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      height: 170px;
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .project-content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3 {
+      color: #111827;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .project-content p {
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 18px;
+    }
+
+    .tag {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .resume-box {
+      background: #111827;
+      color: white;
+      padding: 34px;
+      border-radius: 14px;
+      max-width: 1000px;
+    }
+
+    .resume-box h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .resume-box p {
+      margin-bottom: 20px;
+      color: #d1d5db;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      background: #111827;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding-top: 60px;
+      }
+
+      .hero-text h2 {
+        font-size: 36px;
+      }
+
+      .hero-text h3 {
+        font-size: 20px;
+      }
+
+      nav {
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>Nivin Bose</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Hi, I'm Nivin Bose</h2>
+        <h3>Data Analyst | Data Science Graduate | SQL • Python • Power BI</h3>
+        <p>
+          I build data-driven solutions using SQL, Python, Power BI, Excel, and machine learning.
+          My portfolio highlights projects in data analysis, dashboard development, database design,
+          predictive modeling, and business insights.
+        </p>
+        <div class="button-group">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A short professional introduction for recruiters and hiring managers.</p>
+      <div class="about-box">
+        <p>
+          I am a detail-oriented Data Analyst with hands-on experience in data cleaning, reporting,
+          dashboard development, SQL querying, data validation, and business analysis. I enjoy turning
+          raw data into clear insights that support decision-making. My background includes projects in
+          banking, telecom, investment analysis, real estate analytics, and machine learning.
+        </p>
+        <br />
+        <p>
+          I am currently seeking entry-level opportunities in Data Analysis, Business Intelligence,
+          Reporting Analysis, and Data Science where I can apply my technical skills and problem-solving mindset.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Tools and technologies used across my data projects.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Data Analysis</h3>
+          <p>Excel, Power Query, data cleaning, data validation, exploratory data analysis, reporting, KPI tracking.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <p>Python, R, Pandas, NumPy, Matplotlib, Scikit-learn, basic automation and scripting.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <p>SQL, MySQL, PostgreSQL, relational database design, joins, stored procedures, views, ERD design.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Business Intelligence</h3>
+          <p>Power BI, DAX, Power Query, dashboard design, slicers, bookmarks, interactive reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Selected projects demonstrating analytics, reporting, SQL, BI, and machine learning skills.</p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-image">SQL Banking Database</div>
+          <div class="project-content">
+            <h3>Bank Database Management System</h3>
+            <p>
+              Designed and implemented a normalized banking database with 17+ tables, primary/foreign key constraints,
+              transaction workflows, audit logging, and error tracking.
+            </p>
+            <div class="tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Database Design</span>
+              <span class="tag">ERD</span>
+              <span class="tag">Data Integrity</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">Power BI Dashboard</div>
+          <div class="project-content">
+            <h3>Investment Decision & Behavioral Analysis</h3>
+            <p>
+              Built an end-to-end Power BI report using Power Query, data modeling, DAX measures, slicers,
+              bookmarks, and interactive visuals to analyze investment behavior and decision patterns.
+            </p>
+            <div class="tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">Data Modeling</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Dashboard</a>
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">Telecom Analytics</div>
+          <div class="project-content">
+            <h3>Telecom Customer Lifecycle Analysis</h3>
+            <p>
+              Analyzed customer behavior, service usage, churn patterns, and lifecycle trends to identify retention
+              opportunities and support customer-focused business decisions.
+            </p>
+            <div class="tags">
+              <span class="tag">SAS</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Customer Analytics</span>
+              <span class="tag">Reporting</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">Machine Learning</div>
+          <div class="project-content">
+            <h3>Universal Bank Personal Loan Prediction</h3>
+            <p>
+              Developed classification models to predict personal loan acceptance using customer demographics,
+              financial attributes, feature engineering, model evaluation, and performance comparison.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Classification</span>
+              <span class="tag">Scikit-learn</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">Notebook</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">Real Estate EDA</div>
+          <div class="project-content">
+            <h3>Real Estate Exploratory Data Analysis</h3>
+            <p>
+              Performed exploratory analysis on housing data to compare property types, communities,
+              sold prices, list prices, and pricing patterns across real estate categories.
+            </p>
+            <div class="tags">
+              <span class="tag">R</span>
+              <span class="tag">Excel</span>
+              <span class="tag">EDA</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">GA4 Analytics</div>
+          <div class="project-content">
+            <h3>Google Analytics 4 Reporting Project</h3>
+            <p>
+              Created GA4 reporting workflows covering report snapshots, path exploration, campaign links,
+              audience reports, traffic analysis, and stakeholder-focused digital analytics insights.
+            </p>
+            <div class="tags">
+              <span class="tag">GA4</span>
+              <span class="tag">Digital Analytics</span>
+              <span class="tag">Reporting</span>
+              <span class="tag">Marketing Analytics</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Report</a>
+              <a href="#" target="_blank">View Details</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2 class="section-title">Resume</h2>
+      <p class="section-subtitle">Add your resume PDF to the same folder and name it <strong>Nivin_Bose_Resume.pdf</strong>.</p>
+      <div class="resume-box">
+        <h3>Download My Resume</h3>
+        <p>
+          My resume includes my technical skills, project experience, education, and relevant data analytics background.
+        </p>
+        <a href="Nivin_Bose_Resume.pdf" class="btn" target="_blank">View Resume</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Let’s connect for data analyst, reporting analyst, BI analyst, or data science opportunities.</p>
+      <div class="contact-box">
+        <p>You can contact me through email, LinkedIn, or GitHub.</p>
+        <div class="contact-links">
+          <a href="mailto:nivincanada@gmail.com">Email: nivincanada@gmail.com</a>
+          <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank">LinkedIn: Add your LinkedIn URL</a>
+          <a href="https://github.com/your-github-username" target="_blank">GitHub: Add your GitHub URL</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nivin Bose. Built with HTML and CSS.</p>
+  </footer>
+
+</body>
+</html>
